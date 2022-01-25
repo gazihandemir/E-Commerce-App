@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import { Link } from "react-router-dom";
-import { Button, ButtonGroup } from "@chakra-ui/react";
-function index() {
+import { Button } from "@chakra-ui/react";
+function Navbar() {
   return (
     <nav className={styles.nav}>
       <div className={styles.left}>
@@ -26,4 +26,4 @@ function index() {
   );
 }
 
-export default index;
+export default Navbar;
