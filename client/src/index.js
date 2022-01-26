@@ -10,7 +10,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnMount: false, // Başka bir taba gittiğimizde tekrardan veri çekilmesin
+      refetchOnMount: false, // Başka bir page gittiğimizde tekrardan veri çekilmesin
       refetchOnWindowFocus: false, // Başka bir taba gittiğimizde tekrardan veri çekilmesin
     },
   },

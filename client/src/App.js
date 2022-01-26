@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar/index";
 import Signin from "./pages/Auth/Signin/index";
 import Signup from "./pages/Auth/Signup/index";
 import Products from "./pages/Products/index";
+import ProductDetail from "./pages/ProductDetail";
+
 function App() {
   return (
     <Router>
@@ -13,6 +15,10 @@ function App() {
         <div className="content">
           <Routes>
             <Route path="/" exact element={<Products />} />
+            <Route
+              path="/product/:product_id"
+              element={<ProductDetail />}
+            />
             <Route path="/signin" element={<Signin />} />
             <Route path="/signup" element={<Signup />} />
           </Routes>
