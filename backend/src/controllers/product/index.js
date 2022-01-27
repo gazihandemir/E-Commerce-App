@@ -69,7 +69,7 @@ const Delete = async (req, res, next) => {
 	}
 };
 
-const limit = 12;
+const limit = 3;
 const GetList = async (req, res, next) => {
 	let { page } = req.query;
 
