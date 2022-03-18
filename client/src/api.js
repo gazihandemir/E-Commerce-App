@@ -1,4 +1,24 @@
 import axios from "axios";
+// https://axios-http.com/docs/interceptors
+// Add a request interceptor
+axios.interceptors.request.use(
+  function (config) {
+    const { origin } = new URL(config.url);
+    const allowedOrigins = ["http://localhost:4000"];
+    const token = localStorage.getItem("access-token");
+    console.log(origin);
+    console.log(allowedOrigins);
+    console.log(token);
+    if (allowedOrigins.includes(origin)) {
+      config.headers.authorization = token;
+    }
+    return config;
+  },
+  function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  }
+);
 export const fetchProductList = async ({ pageParam = 0 }) => {
   const { data } = await axios.get(
     `http://localhost:4000/product?page=${pageParam}`
@@ -15,5 +35,9 @@ export const fetchRegister = async (input) => {
     `http://localhost:4000/auth/register`,
     input
   );
+  return data;
+};
+export const fetchMe = async () => {
+  const { data } = await axios.get(`http://localhost:4000/auth/me`);
   return data;
 };

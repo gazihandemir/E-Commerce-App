@@ -24,12 +24,13 @@ function Signup() {
     },
     onSubmit: async (values, bag) => {
       try {
-        const registerResponse = fetchRegister({
+        const registerResponse = await fetchRegister({
           email: values.email,
           password: values.password,
         });
-        console.log(registerResponse);
         login(registerResponse);
+        console.log(registerResponse);
+
         /*    login({
           email: values.email,
           password: values.password,

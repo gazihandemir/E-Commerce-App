@@ -47,7 +47,7 @@ const Register = async (req, res, next) => {
 			refreshToken,
 		});
 	} catch (e) {
-		// next(e);
+		next(e);
 	}
 };
 

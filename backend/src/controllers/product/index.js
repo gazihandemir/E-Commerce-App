@@ -31,8 +31,7 @@ const Get = async (req, res, next) => {
 
 	try {
 		const product = await Product.findById(product_id);
-		console.log(product_id);
-		console.log(product);
+
 		res.json(product);
 	} catch (e) {
 		next(e);
@@ -69,7 +68,7 @@ const Delete = async (req, res, next) => {
 	}
 };
 
-const limit = 3;
+const limit = 12;
 const GetList = async (req, res, next) => {
 	let { page } = req.query;
 
