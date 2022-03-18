@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { Text, Button } from "@chakra-ui/react";
-function Profile({ history }) {
+function Profile() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const handleLogout = () => {
