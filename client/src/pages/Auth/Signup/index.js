@@ -12,7 +12,10 @@ import {
 import { useFormik } from "formik";
 import validationSchema from "./validation";
 import { fetchRegister } from "../../../api";
+import { useAuth } from "../../../contexts/AuthContext";
 function Signup() {
+  const { login } = useAuth();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -20,20 +23,24 @@ function Signup() {
       passwordConfirm: "",
     },
     onSubmit: async (values, bag) => {
-      console.log(values);
       try {
-        const registerResponse = await fetchRegister({
+        const registerResponse = fetchRegister({
           email: values.email,
           password: values.password,
         });
         console.log(registerResponse);
+        login(registerResponse);
+        /*    login({
+          email: values.email,
+          password: values.password,
+        }); */
+        //     console.log(registerResponse);
       } catch (e) {
         bag.setErrors({ general: e.response.data.message });
       }
     },
     validationSchema,
   });
-
   return (
     <div>
       <Flex align={"center"} width={"full"} justifyContent={"center"}>
