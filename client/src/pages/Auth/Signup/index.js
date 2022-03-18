@@ -29,13 +29,6 @@ function Signup() {
           password: values.password,
         });
         login(registerResponse);
-        console.log(registerResponse);
-
-        /*    login({
-          email: values.email,
-          password: values.password,
-        }); */
-        //     console.log(registerResponse);
       } catch (e) {
         bag.setErrors({ general: e.response.data.message });
       }

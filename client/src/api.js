@@ -6,9 +6,6 @@ axios.interceptors.request.use(
     const { origin } = new URL(config.url);
     const allowedOrigins = ["http://localhost:4000"];
     const token = localStorage.getItem("access-token");
-    console.log(origin);
-    console.log(allowedOrigins);
-    console.log(token);
     if (allowedOrigins.includes(origin)) {
       config.headers.authorization = token;
     }
