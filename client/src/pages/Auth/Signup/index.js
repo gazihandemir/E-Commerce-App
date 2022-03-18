@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Flex,
   Box,
@@ -15,7 +16,7 @@ import { fetchRegister } from "../../../api";
 import { useAuth } from "../../../contexts/AuthContext";
 function Signup() {
   const { login } = useAuth();
-
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -29,6 +30,7 @@ function Signup() {
           password: values.password,
         });
         login(registerResponse);
+        navigate("/");
       } catch (e) {
         bag.setErrors({ general: e.response.data.message });
       }
