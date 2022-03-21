@@ -1,8 +1,11 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
 const ProductSchema = new Schema({
+  _id: {
+    type: String,
+  },
   title: {
     type: String,
     required: true,
@@ -21,6 +24,6 @@ const ProductSchema = new Schema({
   },
 });
 
-const User = mongoose.model('product', ProductSchema);
+const User = mongoose.model("product", ProductSchema);
 
 export default User;

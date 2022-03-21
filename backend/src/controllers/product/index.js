@@ -31,7 +31,6 @@ const Get = async (req, res, next) => {
 
 	try {
 		const product = await Product.findById(product_id);
-
 		res.json(product);
 	} catch (e) {
 		next(e);
