@@ -18,11 +18,16 @@ const BasketProvider = ({ children }) => {
     const filtered = items.filter((item) => item._id !== item_id);
     setItems(filtered);
   };
+
+  const emptyBasket = () => {
+    setItems([]);
+  };
   const values = {
     items,
     setItems,
     addToBasket,
     removeFromBasket,
+    emptyBasket,
   };
 
   return (
