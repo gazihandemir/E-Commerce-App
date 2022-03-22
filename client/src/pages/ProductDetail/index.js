@@ -19,7 +19,6 @@ function ProductDetail() {
     return <div>error</div>;
   }
   const findBasketItem = items.find((item) => {
-    console.log(item._id, product_id);
     return item._id === product_id;
   });
   const images = data.photos.map((url) => ({ original: url }));

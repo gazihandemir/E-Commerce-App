@@ -8,6 +8,8 @@ import ProductDetail from "./pages/ProductDetail";
 import Signin from "./pages/Auth/Signin/index";
 import Signup from "./pages/Auth/Signup/index";
 import Profile from "./pages/Profile/index";
+import Basket from "./pages/Basket/index";
+import Error404 from "./pages/Error404";
 
 function App() {
   return (
@@ -20,6 +22,9 @@ function App() {
             <Route path="/product/:product_id" element={<ProductDetail />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/basket" element={<Basket />} />
+            <Route path="*" element={<Error404 />} />
+
             <Route
               path="/profile"
               element={
